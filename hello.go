@@ -21,6 +21,7 @@ func main() {
 	s1, _ := reader.ReadString('\n')
 	fmt.Println("读到的数据：", s1)
 	fmt.Println("jejj")
+	fmt.Println("tests")
 
 	return
 
