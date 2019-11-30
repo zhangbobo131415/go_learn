@@ -81,6 +81,10 @@ func main() {
 
 	wg.Wait()
 	fmt.Println("over")
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+
+	}
 	// fmt.Println(time.Now().Format("15:04:05\n"))
 	// read := newAlphaReader("Hello! It's 9am, whee is the sun?")
 	// fmt.Println()
