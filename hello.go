@@ -5,11 +5,57 @@ import (
 	"io"
 	"log"
 	"net"
-	"sync"
+	"os"
+	_ "sync"
 	"time"
 
-	my_test "./pkg-test"
+	my_test "./my_pkg_"
 )
+
+func init() {
+	fmt.Println(my_test.Sum(2, 6666))
+
+}
+
+func main() {
+	//my_test.CurlMy()
+	fmt.Println(my_test.Sum(2, 6666))
+
+	read := newAlphaReader("Hello! It's 9am, whee is the sun?")
+	io.Copy(os.Stdout, read)
+	// fmt.Println()
+	// fmt.Println("输入一个字符串：")
+	// reader := bufio.NewReader(read)
+	// s1, _ := reader.ReadString('\n')
+	// fmt.Println("读到的数据：", s1)
+
+	// conn, err := net.Dial("tcp", "172.21.15.216:8000")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// done := make(chan struct{})
+	// go func() {
+	// 	io.Copy(os.Stdout, conn) // NOTE: ignoring errors
+	// 	log.Println("done")
+	// 	done <- struct{}{} // signal the main goroutine
+	// }()
+	// mustCopy(conn, os.Stdin)
+	// conn.Close()
+	// <-done // wat for background goroutine to finish
+
+	// listener, err := net.Listen("tcp", "172.21.15.216:8000")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// for {
+	// 	conn, err := listener.Accept()
+	// 	if err != nil {
+	// 		log.Print(err) // e.g., connection aborted
+	// 		continue
+	// 	}
+	// 	go handleConn(conn) // handle one connection at a time
+	// }
+}
 
 // AlphaReader is
 type AlphaReader struct {
@@ -69,59 +115,6 @@ func mustCopy(dst io.Writer, src io.Reader) {
 	if _, err := io.Copy(dst, src); err != nil {
 		log.Fatal(err)
 	}
-}
-
-func main() {
-	wg := sync.WaitGroup{}
-	for i := 0; i < 100; i++ {
-		wg.Add(1)
-		go func(i int) {
-			fmt.Println(i)
-			wg.Done()
-		}(i)
-	}
-
-	wg.Wait()
-	fmt.Println("over")
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
-
-	}
-	fmt.Println(my_test.Sum(145646, 2))
-	// fmt.Println(time.Now().Format("15:04:05\n"))
-	// read := newAlphaReader("Hello! It's 9am, whee is the sun?")
-	// fmt.Println()
-	// fmt.Println("输入一个字符串：")
-	// reader := bufio.NewReader(read)
-	// s1, _ := reader.ReadString('\n')
-	// fmt.Println("读到的数据：", s1)
-
-	// conn, err := net.Dial("tcp", "172.21.15.216:8000")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// done := make(chan struct{})
-	// go func() {
-	// 	io.Copy(os.Stdout, conn) // NOTE: ignoring errors
-	// 	log.Println("done")
-	// 	done <- struct{}{} // signal the main goroutine
-	// }()
-	// mustCopy(conn, os.Stdin)
-	// conn.Close()
-	// <-done // wat for background goroutine to finish
-
-	// listener, err := net.Listen("tcp", "172.21.15.216:8000")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// for {
-	// 	conn, err := listener.Accept()
-	// 	if err != nil {
-	// 		log.Print(err) // e.g., connection aborted
-	// 		continue
-	// 	}
-	// 	go handleConn(conn) // handle one connection at a time
-	// }
 }
 func handleConn(c net.Conn) {
 	defer c.Close()
