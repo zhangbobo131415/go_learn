@@ -7,6 +7,8 @@ import (
 	"net"
 	"sync"
 	"time"
+
+	my_test "./pkg-test"
 )
 
 // AlphaReader is
@@ -85,6 +87,7 @@ func main() {
 		fmt.Println(i)
 
 	}
+	fmt.Println(my_test.Sum(145646, 2))
 	// fmt.Println(time.Now().Format("15:04:05\n"))
 	// read := newAlphaReader("Hello! It's 9am, whee is the sun?")
 	// fmt.Println()
