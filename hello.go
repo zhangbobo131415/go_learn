@@ -5,9 +5,10 @@ import (
 	"io"
 	"log"
 	"net"
-	"os"
 	_ "sync"
 	"time"
+
+	"./links"
 
 	my_test "./my_pkg_"
 )
@@ -18,13 +19,15 @@ func init() {
 }
 
 func main() {
+	res, _ := links.Extract("https://www.zhihu.com")
+	fmt.Println(res)
+
 	//my_test.CurlMy()
 	fmt.Println(my_test.Sum(2, 6666))
 
-	read := newAlphaReader("Hello! It's 9am, whee is the sun?")
-	io.Copy(os.Stdout, read)
-	fmt.Println(fmt.Sprintf("fdsf%d",6))
-	// fmt.Println()
+	// read := newAlphaReader("Hello! It's 9am, whee is the sun?")
+	// io.Copy(os.Stdout, read)
+
 	// fmt.Println("输入一个字符串：")
 	// reader := bufio.NewReader(read)
 	// s1, _ := reader.ReadString('\n')
