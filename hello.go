@@ -8,9 +8,7 @@ import (
 	_ "sync"
 	"time"
 
-	"./links"
-
-	my_test "./my_pkg_"
+	"first-go/my_pkg_"
 )
 
 func init() {
@@ -19,11 +17,12 @@ func init() {
 }
 
 func main() {
-	res, _ := links.Extract("https://www.zhihu.com")
-	fmt.Println(res)
+	// res, _ := links.Extract("https://www.zhihu.com")
+	// fmt.Println(res)
 
 	//my_test.CurlMy()
 	fmt.Println(my_test.Sum(2, 6666))
+	fmt.Println("我是你爸爸")
 
 	// read := newAlphaReader("Hello! It's 9am, whee is the sun?")
 	// io.Copy(os.Stdout, read)
