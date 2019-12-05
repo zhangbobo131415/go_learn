@@ -10,12 +10,9 @@ import (
 	"time"
 )
 
-func init() {
-	fmt.Println(my_test.Sum(2, 6666))
 
-}
 
-func main() {
+func test() {
 	// res, _ := links.Extract("https://www.zhihu.com")
 	// fmt.Println(res)
 
