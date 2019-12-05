@@ -5,6 +5,7 @@ import (
 	"first-go/sayhello"
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/apache/thrift/lib/go/thrift"
 )
@@ -29,7 +30,8 @@ func main() {
 	var i int32
 	for i = 0; i < 200; i++ {
 		tmp, _ := client.Sum(defalt_context, i, i)
-		fmt.Println(tmp)
+		s, _ := client.Sayhello(defalt_context, strconv.Itoa(int(i)))
+		fmt.Println(tmp,s)
 
 	}
 	// handler := &rpc_service{}
