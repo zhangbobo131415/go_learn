@@ -12,7 +12,7 @@ import (
 
 func main() {
 	netAddres := "172.21.13.121:8000"
-	defalt_context := context.Background()
+	defaltContext := context.Background()
 	transportFactory := thrift.NewTFramedTransportFactory(thrift.NewTTransportFactory())
 	protocolfactory := thrift.NewTBinaryProtocolFactoryDefault()
 	transport, err := thrift.NewTSocket(netAddres)
@@ -29,15 +29,8 @@ func main() {
 	defer transport.Close()
 	var i int32
 	for i = 0; i < 200; i++ {
-		tmp, _ := client.Sum(defalt_context, i, i)
-		s, _ := client.Sayhello(defalt_context, strconv.Itoa(int(i)))
-		fmt.Println(tmp,s)
-
+		tmp, _ := client.Sum(defaltContext, i, i)
+		s, _ := client.Sayhello(defaltContext, strconv.Itoa(int(i)))
+		fmt.Println(tmp, s)
 	}
-	// handler := &rpc_service{}
-	// processer := sayhello.NewHelloAndSumProcessor(handler)
-	// server := thrift.NewTSimpleServer4(processer, severtranport, transportFactory, protocolfactory)
-
-	// fmt.Println("thrift server in :", netAddres)
-	// server.Serve()
 }

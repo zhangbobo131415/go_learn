@@ -27,7 +27,6 @@ func main() {
 	transportFactory := thrift.NewTFramedTransportFactory(thrift.NewTTransportFactory())
 	protocolfactory := thrift.NewTBinaryProtocolFactoryDefault()
 	severtranport, err := thrift.NewTServerSocket(netAddres)
-	//sayhello.NewHelloAndSumClientFactory()
 	if err != nil {
 		fmt.Println("err", err)
 		os.Exit(1)
