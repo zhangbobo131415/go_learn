@@ -1,14 +1,13 @@
 package main
 
 import (
+	"first-go/my_test"
 	"fmt"
 	"io"
 	"log"
 	"net"
 	_ "sync"
 	"time"
-
-	"first-go/my_pkg_"
 )
 
 func init() {
