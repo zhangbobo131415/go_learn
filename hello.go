@@ -23,6 +23,7 @@ func main() {
 
 	read := newAlphaReader("Hello! It's 9am, whee is the sun?")
 	io.Copy(os.Stdout, read)
+	fmt.Println(fmt.Sprintf("fdsf%d",6))
 	// fmt.Println()
 	// fmt.Println("输入一个字符串：")
 	// reader := bufio.NewReader(read)
