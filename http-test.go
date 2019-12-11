@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -11,7 +10,7 @@ type pp struct {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	t1, err := template.ParseFiles("hehe.html")
+	t1, err := template.New("he").ParseFiles("hehe.html")
 	if err != nil {
 		panic(err)
 	}
@@ -23,8 +22,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 	// for ii, kk := range tem.Num {
 	// 	fmt.Println(ii, kk)
 	// }
-	errr := t1.Execute(w, tem)
-	fmt.Println(errr)
+	t1.ExecuteTemplate(w, "hehe.html", tem)
+	// errr := t1.Execute(w, tem)
+	// fmt.Println(errr)
 }
 
 func main() {
