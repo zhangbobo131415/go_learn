@@ -7,10 +7,9 @@
 </head>
 
 <body>
-    {{ range $x := .Num}}
-    <h3>caocaooa</h3>
-    <br>
-    {{else}}
+    {{ range $x:= .Num}}
+    <h3>{{$x}}</h3>
+    <br> {{else}}
     <p>why not range</p>
     {{end}}
 </body>
