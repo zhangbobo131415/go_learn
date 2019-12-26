@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	netAddres := "172.21.13.121:8000"
+	netAddres := "172.21.15.216:8000"
 	defaltContext := context.Background()
 	transportFactory := thrift.NewTFramedTransportFactory(thrift.NewTTransportFactory())
 	protocolfactory := thrift.NewTBinaryProtocolFactoryDefault()
